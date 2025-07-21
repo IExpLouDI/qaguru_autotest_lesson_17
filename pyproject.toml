@@ -1,0 +1,20 @@
+[project]
+name = "qaguru-autotest-lesson-17"
+version = "0.1.0"
+description = "Домашнее задание к уроку 17"
+authors = [
+    {name = "Viacheslav Suchkov",email = "iexploudi@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13.3,<4.0"
+dependencies = [
+    "pytest (>=8.4.1,<9.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "qaguru_autotest_lesson_17", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
