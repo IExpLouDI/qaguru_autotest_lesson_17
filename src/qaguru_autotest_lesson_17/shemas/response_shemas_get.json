@@ -201,8 +201,6 @@
     "page",
     "per_page",
     "total",
-    "total_pages",
-    "data",
-    "support"
+    "total_pages"
   ]
 }
