@@ -3,6 +3,7 @@ import os
 import pytest
 import requests.adapters
 
+from src.qaguru_autotest_lesson_17.utils.paths import SCHEMAS_DIR
 from src.qaguru_autotest_lesson_17.utils.request_params import headers, url
 from src.qaguru_autotest_lesson_17.utils.request_params import get, get_params, get_single
 from src.qaguru_autotest_lesson_17.utils.request_params import post, post_body
@@ -11,13 +12,13 @@ import requests as rq
 
 @pytest.fixture()
 def shema_path_response_type_get():
-    get_shema = os.path.join('.', 'src', 'qaguru_autotest_lesson_17', 'shemas', 'response_shemas_get.json')
+    get_shema = os.path.join(SCHEMAS_DIR, 'response_schema_get.json')
     return get_shema
 
 
 @pytest.fixture()
 def shema_path_response_type_post():
-    get_shema = os.path.join('.', 'src', 'qaguru_autotest_lesson_17', 'shemas', 'response_shemas_get.json')
+    get_shema = os.path.join(SCHEMAS_DIR, 'response_schema_post.json')
     return get_shema
 
 
