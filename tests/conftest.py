@@ -7,7 +7,13 @@ from src.qaguru_autotest_lesson_17.utils.paths import SCHEMAS_DIR
 from src.qaguru_autotest_lesson_17.utils.request_params import headers, url
 from src.qaguru_autotest_lesson_17.utils.request_params import get, get_params, get_single
 from src.qaguru_autotest_lesson_17.utils.request_params import post, post_body
+from src.qaguru_autotest_lesson_17.utils.request_params import put, put_body
+from src.qaguru_autotest_lesson_17.utils.request_params import delete
+
 import requests as rq
+
+
+get_not_found = pytest.mark.parametrize("get_single_user", ['/233'], indirect=True)
 
 
 @pytest.fixture()
@@ -38,7 +44,7 @@ def session_config():
 @pytest.fixture(scope='session')
 def get_list_users(session_config):
     curl = url + get
-    response = session_config.get(curl, headers=headers, params=get_params)
+    response = session_config.get(curl, params=get_params)
     return response
 
 
@@ -48,10 +54,23 @@ def get_single_user(session_config, request):
     response = session_config.get(curl)
     return response
 
-get_not_found = pytest.mark.parametrize("get_single_user", ['/233'], indirect=True)
 
 @pytest.fixture()
 def post_request(session_config):
     curl = url + post
-    response = session_config.post(curl, data=post_body, headers=headers)
+    response = session_config.post(curl, data=post_body)
+    return response
+
+
+@pytest.fixture()
+def put_request(session_config):
+    curl = url + put
+    response = session_config.put(curl, data=put_body)
+    return response
+
+
+@pytest.fixture()
+def delete_request(session_config):
+    curl = url + delete
+    response = session_config.delete(curl)
     return response

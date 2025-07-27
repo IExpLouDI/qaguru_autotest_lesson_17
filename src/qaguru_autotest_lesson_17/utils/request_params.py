@@ -4,6 +4,7 @@ url = 'https://reqres.in'
 get = '/api/users'
 get_params = {'page': "1"}
 get_single = '/2'
+
 # POST
 post = '/api/users'
 
@@ -13,21 +14,18 @@ post_body = {
 }
 
 # PUT
-put = '/api/users/2'
+put = '/api/users/7'
 
 
 put_body = {
-    'name': 'morpheus',
-    'job': 'zion resident'
+    'name': 'zendeus',
+    'job': 'customer'
 }
 
 # DELETE
 delete = '/api/users/2'
 
+#HEADERS
 headers = {
     'x-api-key': 'reqres-free-v1'
     }
-
-# negative_headers = {
-#     'free':'access'
-# }
