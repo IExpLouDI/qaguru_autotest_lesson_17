@@ -14,6 +14,13 @@ import requests as rq
 
 
 get_not_found = pytest.mark.parametrize("get_single_user", ['/233'], indirect=True)
+post_un_successful_reg = pytest.mark.parametrize("post_request", [['/api/register', {"email": "sydney@fife"}]],
+                                                 indirect=True)
+post_successful_reg = pytest.mark.parametrize("post_request", [['/api/register', {"email": "eve.holt@reqres.in",
+                                                                                  "password": "pistol"}]
+                                                               ], indirect=True)
+post_reg_valid_schema = pytest.mark.parametrize('shema_path_response_type_post', ['response_schema_registr_post.json'],
+                                             indirect=True)
 
 
 @pytest.fixture()
@@ -22,9 +29,9 @@ def shema_path_response_type_get():
     return get_shema
 
 
-@pytest.fixture()
-def shema_path_response_type_post():
-    get_shema = os.path.join(SCHEMAS_DIR, 'response_schema_post.json')
+@pytest.fixture(params=['response_schema_post.json'])
+def shema_path_response_type_post(request):
+    get_shema = os.path.join(SCHEMAS_DIR, request.param)
     return get_shema
 
 
@@ -55,10 +62,10 @@ def get_single_user(session_config, request):
     return response
 
 
-@pytest.fixture()
-def post_request(session_config):
-    curl = url + post
-    response = session_config.post(curl, data=post_body)
+@pytest.fixture(params=[[post, post_body]])
+def post_request(session_config, request):
+    curl = url + request.param[0]
+    response = session_config.post(curl, data=request.param[1])
     return response
 
 

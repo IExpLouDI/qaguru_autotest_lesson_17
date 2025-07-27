@@ -7,12 +7,16 @@ get_single = '/2'
 
 # POST
 post = '/api/users'
+post_bad = '/api/register'
 
 post_body = {
     'name': 'tester',
     'job': 'laos'
 }
 
+post_body_bad = {
+    "email": "sydney@fife"
+}
 # PUT
 put = '/api/users/7'
 

@@ -17,7 +17,7 @@ dependencies = [
 packages = [{include = "qaguru_autotest_lesson_17", from = "src"}]
 
 [tool.pytest.ini_options]
-addopts="-l -v --durations=10 "
+addopts="-l -q --durations=10 "
 markers=[
     "positive: позитивные сценарии",
     "negative: негативные сценарии"
