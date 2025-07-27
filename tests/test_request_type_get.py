@@ -34,5 +34,5 @@ def test_get_single_user(get_single_user):
 
 @pytest.mark.negative
 @get_not_found
-def test_get_not_found(get_single_user):
+def test_get_status_code_404(get_single_user):
     assert get_single_user.status_code == 404

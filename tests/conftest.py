@@ -35,6 +35,13 @@ def shema_path_response_type_post(request):
     return get_shema
 
 
+@pytest.fixture()
+def shema_path_response_type_put():
+    get_shema = os.path.join(SCHEMAS_DIR, 'response_schema_put.json')
+    return get_shema
+
+
+
 @pytest.fixture(scope='session')
 def session_config():
     session = rq.sessions.Session()
